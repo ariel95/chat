@@ -28,12 +28,16 @@ Node socket.io based one to one chat.
  2. Make more skins.
  3. Admin panel, so admin can make chat rooms.
  4. Responsive design
- 5. Log out   
- 6. Refresh list when someone is conected 
+ 5. Log out (Important)
+ 6. Refresh list when someone is conected (Important)
  7. One to one chat ?
  8. Is writing...
  9. No internet
- 10. Statics users
+ 10. Statics users (Important)
+ 11. Save chats (Important)
+ 12. Responsive -> Header and footer -> maybe 2 views: 1) Contacts. 2) Chat
+
+ Username-IdUsername(celphone or email with authentication)
 
 ## On Demand feature?
  looking for some custom feature with this script, feel free to open an issue at github, with feature request.
