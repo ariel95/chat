@@ -4,8 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./app/routes/indexRoutes');
+var usersRouter = require('./app/routes/usersRoutes');
 
 
 
@@ -58,6 +58,8 @@ io.on('connection', (client) => {
     id: client.id,
     name: token
   });
+  console.log("Usuarios conectados: " + users);
+
   client.on('typing', (data) => {
     io.emit("typing", data)
   });

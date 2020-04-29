@@ -36,8 +36,8 @@ Node socket.io based one to one chat.
  10. Statics users (Important)
  11. Save chats (Important)
  12. Responsive -> Header and footer -> maybe 2 views: 1) Contacts. 2) Chat
+ 13. Room chats
 
- Username-IdUsername(celphone or email with authentication)
 
 ## On Demand feature?
  looking for some custom feature with this script, feel free to open an issue at github, with feature request.
@@ -48,3 +48,40 @@ Node socket.io based one to one chat.
 
 ## Special thanks
 1. Sumit rajput, for making beautiful ui for chat screen. 
+
+
+## Notation - Think about this!
+
+Database -> Cassandra or HBase ?
+-Cassandra = Columnas -> E-commerce, Deteccion de fraudes, Analisis en tiempo real -> Crecimiento de datos exponencial y tenemos la estructura de la bd
+-Mongo DB = Documentos -> Analisis en tiempo real, aplicaciones moviles -> si no tenemos una estructura fija
+
+
+Backend -> Connection with API Rest made it in net core?
+
+Authentication -> Google? 
+
+Username-IdUsername(celphone or email with authentication) (Important)
+User{
+    Id int PK
+    Username string
+    State State
+    Cel string 
+    Email string 
+    LastConnection DateTime
+}
+Message{
+    Id int PK
+    Description string
+    From int FK
+    To int FK
+    Sent bool
+    SentDate DateTime
+    Received bool
+    ReceivedDate Datetime 
+    Read bool
+    ReadDate Datetime
+}
+State{
+    -> Active / Absent / Not available
+}
