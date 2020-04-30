@@ -1,7 +1,7 @@
 <div class="container login-container">
     <div class="login-form-2">
         <h3>Please enter your name</h3>
-        <form method="POST">
+        <form id="form-registro" method="POST">
             <div class="form-group">
                 <input type="text" name="username" class="form-control" placeholder="Your Name *" value="" />
             </div>
@@ -11,3 +11,11 @@
         </form>
     </div>
 </div>
+<script>
+    window.onload = () => {
+      document.querySelector('form#form-registro')
+              .addEventListener('click',()=>{
+                  localStorage.username = document.querySelector('input[name=username]').value;
+              })
+    }
+  </script>

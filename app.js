@@ -3,16 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
-
+var app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server); //Incluimos socket io en el servidor
 var indexRouter = require('./app/routes/indexRoutes');
 var usersRouter = require('./app/routes/usersRoutes');
-
-
-
-var app = express();
-
-
-const chatServer = require('http').createServer(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,52 +27,18 @@ app.use(session({
   resave: false
 }))
 
+// io.use((socket, next) => {
+//   let token = socket.handshake.query.username;
+//   if (token) {
+//     return next();
+//   }
+//   console.log("Token: " + token);
+//   return next(new Error('authentication error'));
+// });
 
-global.users = [];
-const io = require('socket.io')(chatServer);
+socket = require('./app/sockets')(io);
 
-io.use((socket, next) => {
-  let token = socket.handshake.query.username;
-  if (token) {
-    return next();
-  }
-  return next(new Error('authentication error'));
-});
-
-io.on('connection', (client) => {
-  let token = client.handshake.query.username;
-  client.on('disconnect', () => {
-    var clientid = client.id;
-    for (var i = 0; i < users.length; i++)
-      if (users[i].id && users[i].id == clientid) {
-        users.splice(i, 1);
-        break;
-      }
-  });
-  users.push({
-    id: client.id,
-    name: token
-  });
-  console.log("Usuarios conectados: " + users);
-
-  client.on('typing', (data) => {
-    io.emit("typing", data)
-  });
-
-  client.on('stoptyping', (data) => {
-    io.emit("stoptyping", data)
-  });
-
-  client.on('message', (data) => {
-    io.emit("message", data)
-  });
-
-  io.emit("newuser", {
-    id: client.id,
-    name: token
-  })
-});
-chatServer.listen(7777);
+server.listen(7000);
 
 
 app.use('/', indexRouter);

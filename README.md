@@ -37,7 +37,7 @@ Node socket.io based one to one chat.
  11. Save chats (Important)
  12. Responsive -> Header and footer -> maybe 2 views: 1) Contacts. 2) Chat
  13. Room chats
-
+ 14. Event search -> Users or Chats?
 
 ## On Demand feature?
  looking for some custom feature with this script, feel free to open an issue at github, with feature request.
