@@ -2,16 +2,13 @@
 
 WE ARE PLANING TO MAKE IT LIKE SLACK SO ORGANIZATIONS CAN USE IT FOR FREE. PLEASE FEEL FREE TO ADD THE COMMENTS OR SUGGESTIONS IN SHEET BELOW.
 
-https://docs.google.com/spreadsheets/d/1bBQ3pgr1LPDse0DKMzZptd2H41K-I91R545nmYdMhTY/edit?usp=sharing
-
-# node-chat-one-to-one
-Node socket.io based one to one chat.
+https://docs.google.com/spreadsheets/d/1vUfnRZCi1iXCqpprWOvZ8rdiduLlxAz-xMmvuJQkwH0/edit?usp=sharing
 
 
 ## Features
  1. One to one chat 
  2. Chat Rooms
- 3. Individual login using passport.
+ 3. Individual login using email.
  4. Bootstrap 4 UI
  5. Seperate UI, so you can skin as you want.
  6. Developed with Express.js, EJS, Socket.io
